@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 export default function TestScreen({ navigation }) {
+  
     return (
       <View style={styles.container}>
         <Text style={styles.title}>크로스플랫폼 앱프로그래밍</Text>
@@ -17,10 +18,34 @@ export default function TestScreen({ navigation }) {
         <Text style={styles.text}>- 희원님 : 68, 메인 페이지 개발 진행</Text>
         </View>
         
+        <View style={styles.button}>
         <Button
-          title="메인페이지"
+          title="문제 시작"
           onPress={() => navigation.navigate('Question63')}
         /> 
+        </View>
+        
+
+        <View style={styles.button}>
+        <Button
+          title="63-2번"
+          onPress={() => navigation.navigate('Question63t')}
+        /> 
+        </View>
+        
+        <View style={styles.button}>
+        <Button
+          title="65번"
+          onPress={() => navigation.navigate('Question65')}
+        /> 
+        </View>
+        
+        
+        <Button
+          title="65번-2"
+          onPress={() => navigation.navigate('Question65t')}
+        /> 
+
       </View>
     );
   }
@@ -29,5 +54,6 @@ export default function TestScreen({ navigation }) {
     container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
     title: { fontSize: 24, fontWeight: 'bold', marginBottom: 20 },
     textContainer: { margin: '15px'},
-    text: { fontSize: 14, marginBottom: '5px'}
+    text: { fontSize: 14, marginBottom: '5px'},
+    button: {marginBottom: 10,}
   });
