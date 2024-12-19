@@ -24,6 +24,13 @@ export default function TestScreen({ navigation }) {
           onPress={() => navigation.navigate('Question63')}
         /> 
         </View>
+
+        <View style={styles.button}>
+        <Button
+          title="62번"
+          onPress={() => navigation.navigate('Question62')}
+        /> 
+        </View>
         
 
         <View style={styles.button}>
@@ -45,6 +52,13 @@ export default function TestScreen({ navigation }) {
           title="65번-2"
           onPress={() => navigation.navigate('Question65t')}
         /> 
+
+      <View style={styles.button}>
+        <Button
+          title="67번"
+          onPress={() => navigation.navigate('Question67')}
+        /> 
+        </View>
 
       </View>
     );
