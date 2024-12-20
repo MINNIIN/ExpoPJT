@@ -10,7 +10,7 @@ const items = [
   { id: 2, name: '다용도 칼', image: require('../../assets/sgImage/knife.png'), isAllowed: false },
   { id: 3, name: '50000원', image: require('../../assets/sgImage/money2.png'), isAllowed: true },
   { id: 4, name: '생수', image: require('../../assets/sgImage/water.png'), isAllowed: false },
-  { id: 5, name: '고추장', image: require('../../assets/sgImage/gochujang.png'), isAllowed: true },
+  { id: 5, name: '고추장', image: require('../../assets/sgImage/gochujang.png'), isAllowed: false },
   { id: 6, name: '가위', image: require('../../assets/sgImage/scissors.png'), isAllowed: false },
   { id: 7, name: '스프레이', image: require('../../assets/sgImage/spray.png'), isAllowed: false },
   { id: 8, name: '귤', image: require('../../assets/sgImage/orange.png'), isAllowed: true },

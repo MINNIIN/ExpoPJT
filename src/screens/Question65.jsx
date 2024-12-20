@@ -59,7 +59,7 @@ const Question65 = () => {
       
       <View style={styles.bottomContainer}>
         <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
-        <NextButton nextScreen="Question63t" label="문제 65-2" onPress={handleNextButtonPress} />
+        <NextButton nextScreen="Question65t" label="문제 65-2" onPress={handleNextButtonPress} />
       </View>
       {showFeedback && ( 
         <FeedbackBox onClose={() => setShowFeedback(false)} />
