@@ -20,8 +20,8 @@ export default function TestScreen({ navigation }) {
         
         <View style={styles.button}>
         <Button
-          title="문제 시작"
-          onPress={() => navigation.navigate('Question63')}
+          title="메인화면"
+          onPress={() => navigation.navigate('Mainw')}
         /> 
         </View>
 

@@ -3,6 +3,7 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity, Image } from "reac
 import { useNavigation } from '@react-navigation/native';
 import NextButton from '../components/NextButton';
 import Timer from '../components/Timer';
+import PageSlide from '../components/PageSlide';
 
 export default function App() {
   const [date, setDate] = useState("");
@@ -13,6 +14,9 @@ export default function App() {
   ]);
 
   const navigation = useNavigation();
+
+  const totalQuestions = 9;
+  const [currentQuestion, setCurrentQuestion] = useState(1); 
 
   const handleNextButtonPress = () => {
     navigation.navigate('Question63')
@@ -103,8 +107,9 @@ export default function App() {
       ))}
 
       <View style={styles.bottomContainer}>
+        <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
               {/* NextButton에 다음 화면 이름 전달 */}
-                  <NextButton nextScreen="Question63" label="문제 63" onPress={handleNextButtonPress} />
+        <NextButton nextScreen="Question63" label="문제 63" onPress={handleNextButtonPress} />
       </View>
 
     </View>
@@ -119,16 +124,19 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
     bottom: 20,
-    right: 20,
+    left: 10, 
+    right: 10,
   },
   topContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center', 
     marginBottom: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    
   },
   title: {
     fontSize: 24,

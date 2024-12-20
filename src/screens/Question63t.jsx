@@ -5,6 +5,7 @@ import FeedbackBox from '../components/FeedbackBox';
 import { useNavigation } from '@react-navigation/native';
 import Timer from '../components/Timer';
 import Question63tContent from '../components/Question63tContent';
+import PageSlide from '../components/PageSlide';
 // import styled from "styled-components";   / npm install styled-components
 // import { Link }
 
@@ -15,8 +16,11 @@ const Question63t = () => {
     const [showFeedback, setShowFeedback] = useState(false);
     const navigation = useNavigation();
 
+    const totalQuestions = 9; 
+    const [currentQuestion, setCurrentQuestion] = useState(3); 
+
     const handleNextButtonPress = () => {
-        navigation.navigate('Question65')
+        navigation.navigate('Question64')
       };
 
     return (
@@ -26,14 +30,16 @@ const Question63t = () => {
             <Timer/>
           </View>
           
-          <Text style={styles.questionText}>다음과 같이 가로의 기호와 세로의 모양을 합쳐 그려보세요.</Text>
+          
     
           <View style={styles.questionContainer}>
+          <Text style={styles.questionText}>다음과 같이 가로의 기호와 세로의 모양을 합쳐 그려보세요.</Text>
           <Question63tContent></Question63tContent>
           </View>
           
           <View style={styles.bottomContainer}>
-                <NextButton nextScreen="Question65" label="문제 65" onPress={handleNextButtonPress} />
+                <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
+                <NextButton nextScreen="Question64" label="문제 64" onPress={handleNextButtonPress} />
           </View>
           {showFeedback && ( // true면 피드백 박스 나타남
             <FeedbackBox onClose={() => setShowFeedback(false)} />
@@ -53,7 +59,6 @@ const Question63t = () => {
         backgroundColor: '#ffffff',
       },
       questionContainer: {
-        flexDirection: 'row',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       },
@@ -62,8 +67,7 @@ const Question63t = () => {
         justifyContent: 'space-between',
         alignItems: 'center', 
         marginBottom: 10,
-        paddingHorizontal: 10,
-        paddingVertical: 5,
+        
       },
       titleText: {
         fontSize: 20,
@@ -78,8 +82,12 @@ const Question63t = () => {
       },
       bottomContainer: {
         position: 'absolute',
+        flexDirection: 'row',
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
         bottom: 20,
-        right: 20,
+        left: 10, 
+        right: 10,
       },
       
     });

@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView, Alert } fr
 import { useNavigation } from '@react-navigation/native';
 import NextButton from '../components/NextButton';
 import Timer from '../components/Timer';
+import PageSlide from '../components/PageSlide';
 
 const items = [
   { id: 1, name: '5000원', image: require('../../assets/sgImage/money1.png'), isAllowed: true },
@@ -19,9 +20,13 @@ const items = [
 export default function App() {
 
   const [results, setResults] = useState({});
-  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false); // 정답 상태
+  const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   
   const navigation = useNavigation();
+
+  const totalQuestions = 9; 
+  const [currentQuestion, setCurrentQuestion] = useState(8); 
+
 
   // 정답 체크
   useEffect(() => {
@@ -36,7 +41,7 @@ export default function App() {
 
   const handleNextButtonPress = () => {
     if (isAnswerCorrect) {
-      navigation.navigate('Question63'); // 다음 화면으로 이동
+      navigation.navigate('Question68'); 
     } else {
       Alert.alert('모든 정답을 선택해주세요!', '정답을 모두 선택해야 다음으로 진행할 수 있습니다.');
     }
@@ -60,7 +65,7 @@ export default function App() {
     <ScrollView contentContainerStyle={styles.container}>
       {/* 맨 위 제목 */}
       <View style={styles.topContainer}>
-      <Text style={styles.header}>Question 62</Text>
+      <Text style={styles.header}>문제 67번</Text>
       <Timer/>
       </View>
 
@@ -90,8 +95,8 @@ export default function App() {
       </View>
 
       <View style={styles.bottomContainer}>
-            {/* NextButton에 다음 화면 이름 전달 */}
-            <NextButton nextScreen="Question63" label="문제 63" onPress={handleNextButtonPress}/>
+        <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
+        <NextButton nextScreen="Question68" label="문제 68" onPress={handleNextButtonPress}/>
       </View>
 
     </ScrollView>
@@ -103,15 +108,12 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     backgroundColor: '#f7f7f7',
     paddingHorizontal: 10,
-    
   },
   topContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center', 
     marginBottom: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
     marginTop: 10,
   },
   bottomContainer: {

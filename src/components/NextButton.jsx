@@ -14,7 +14,7 @@ const NextButton = ({ nextScreen, label, onPress }) => {
       style={styles.button}
       onPress={onPress}
     >
-      <Text style={styles.buttonText}>{label || '다음 문제'}</Text>
+      <Text style={styles.buttonText}>{label}</Text>
       <Image source={images.rightArrow} style={styles.nextIcon}/>
     </TouchableOpacity>
   );

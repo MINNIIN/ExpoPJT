@@ -6,17 +6,22 @@ import FeedbackBox from '../components/FeedbackBox';
 import { useNavigation } from '@react-navigation/native';
 import Timer from '../components/Timer';
 import Question65Middle from '../components/Question65Middle';
-// import { Link } from 'expo-router';
+import PageSlide from '../components/PageSlide';
+
 
 
 
 const Question65 = () => {
-  const correctAnswers = ['sejong']; // 정답 사물
+  const correctAnswers = ['sejong']; 
   const incorrectAnswers = ['yulgok', 'yiSunsin'];
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);
 
   const navigation = useNavigation();
+
+  const totalQuestions = 9; 
+  const [currentQuestion, setCurrentQuestion] = useState(5); 
+  
   
   const handleAnswerCheck = (isCorrect) => {
     setIsAnswerCorrect(isCorrect);
@@ -24,12 +29,9 @@ const Question65 = () => {
 
   const handleNextButtonPress = () => {
     if (isAnswerCorrect) {
-      // 정답일 경우 다음 화면으로 이동
       navigation.navigate('Question65t');
-      // <Link href="/question65t"></Link>
       
     } else {
-      // 오답일 경우 FeedbackBox 표시
       setShowFeedback(true);
     }
   };
@@ -41,11 +43,12 @@ const Question65 = () => {
         <Text style={styles.titleText}>문제 65번</Text>
         <Timer/>
       </View>
+    
       
-      <Text style={styles.questionText}>다음의 화폐와 알맞는 인물을 선택하세요.</Text>
 
       
       <View style={styles.questionContainer}>
+      <Text style={styles.questionText}>다음의 화폐와 알맞는 인물을 선택하세요.</Text>
       <Question65Middle/>
       <Question65Content
         correctAnswers={correctAnswers}
@@ -55,10 +58,10 @@ const Question65 = () => {
       </View>
       
       <View style={styles.bottomContainer}>
-        {/* NextButton에 다음 화면 이름 전달 */}
-            <NextButton nextScreen="Question63t" label="문제 65-2" onPress={handleNextButtonPress} />
+        <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
+        <NextButton nextScreen="Question63t" label="문제 65-2" onPress={handleNextButtonPress} />
       </View>
-      {showFeedback && ( // true면 피드백 박스 나타남
+      {showFeedback && ( 
         <FeedbackBox onClose={() => setShowFeedback(false)} />
       )}
     </View>
@@ -72,7 +75,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   questionContainer: {
-    
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -81,8 +83,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center', 
     marginBottom: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
   },
   titleText: {
     fontSize: 20,
@@ -97,8 +97,12 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
     bottom: 20,
-    right: 20,
+    left: 10, 
+    right: 10,
   },
   
 });

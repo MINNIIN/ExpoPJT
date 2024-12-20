@@ -5,6 +5,7 @@ import Question63Content from '../components/Question63Content';
 import FeedbackBox from '../components/FeedbackBox';
 import { useNavigation } from '@react-navigation/native';
 import Timer from '../components/Timer';
+import PageSlide from '../components/PageSlide';
 
 
 
@@ -16,17 +17,18 @@ const Question63 = () => {
 
   const navigation = useNavigation();
   
+  const totalQuestions = 9; 
+  const [currentQuestion, setCurrentQuestion] = useState(2); 
+
   const handleAnswerCheck = (isCorrect) => {
     setIsAnswerCorrect(isCorrect);
   };
 
   const handleNextButtonPress = () => {
     if (isAnswerCorrect) {
-      // 정답일 경우 다음 화면으로 이동
       navigation.navigate('Question63t');
       
     } else {
-      // 오답일 경우 FeedbackBox 표시
       setShowFeedback(true);
     }
   };
@@ -39,9 +41,10 @@ const Question63 = () => {
         <Timer/>
       </View>
       
-      <Text style={styles.questionText}>앞서 기억해 둔 기내반입 금지물품을 모두 선택하세요.</Text>
+      
 
       <View style={styles.questionContainer}>
+      <Text style={styles.questionText}>앞서 기억해 둔 기내반입 금지물품을 모두 선택하세요.</Text>
       <Question63Content
         correctAnswers={correctAnswers}
         incorrectAnswers={incorrectAnswers}
@@ -50,10 +53,10 @@ const Question63 = () => {
       </View>
       
       <View style={styles.bottomContainer}>
-        {/* NextButton에 다음 화면 이름 전달 */}
-            <NextButton nextScreen="Question63t" label="문제 63-2" onPress={handleNextButtonPress} />
+        <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
+        <NextButton nextScreen="Question63t" label="문제 63-2" onPress={handleNextButtonPress} />
       </View>
-      {showFeedback && ( // true면 피드백 박스 나타남
+      {showFeedback && ( 
         <FeedbackBox onClose={() => setShowFeedback(false)} />
       )}
     </View>
@@ -67,7 +70,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   questionContainer: {
-    flexDirection: 'row',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -76,8 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center', 
     marginBottom: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    
   },
   titleText: {
     fontSize: 20,
@@ -92,8 +93,12 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
     bottom: 20,
-    right: 20,
+    left: 10, 
+    right: 10,
   },
   
 });

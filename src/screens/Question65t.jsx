@@ -6,6 +6,7 @@ import FeedbackBox from '../components/FeedbackBox';
 import { useNavigation } from '@react-navigation/native';
 import Timer from '../components/Timer';
 import Question65tMiddle from '../components/Question65tMiddle.jsx';
+import PageSlide from '../components/PageSlide.jsx';
 
 
 
@@ -16,6 +17,9 @@ const Question65t = () => {
   const [showFeedback, setShowFeedback] = useState(false);
 
   const navigation = useNavigation();
+
+  const totalQuestions = 9; 
+  const [currentQuestion, setCurrentQuestion] = useState(6); 
   
   const handleAnswerCheck = (isCorrect) => {
     setIsAnswerCorrect(isCorrect);
@@ -23,11 +27,8 @@ const Question65t = () => {
 
   const handleNextButtonPress = () => {
     if (isAnswerCorrect) {
-      // 정답일 경우 다음 화면으로 이동 . 66번으로 수정할것
-      navigation.navigate('Question63t');
-      
+      navigation.navigate('Question66');
     } else {
-      // 오답일 경우 FeedbackBox 표시
       setShowFeedback(true);
     }
   };
@@ -40,10 +41,11 @@ const Question65t = () => {
         <Timer/>
       </View>
       
-      <Text style={styles.questionText}>다음의 화폐와 알맞는 인물을 선택하세요.</Text>
+      
 
       
       <View style={styles.questionContainer}>
+      <Text style={styles.questionText}>다음의 화폐와 알맞는 인물을 선택하세요.</Text>
       <Question65tMiddle/>
       <Question65tContent
         correctAnswers={correctAnswers}
@@ -53,10 +55,10 @@ const Question65t = () => {
       </View>
       
       <View style={styles.bottomContainer}>
-        {/* NextButton에 다음 화면 이름 전달 */}
-            <NextButton nextScreen="Question63t" label="문제 63-2" onPress={handleNextButtonPress} />
+        <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
+        <NextButton nextScreen="Question66" label="문제 66" onPress={handleNextButtonPress} />
       </View>
-      {showFeedback && ( // true면 피드백 박스 나타남
+      {showFeedback && ( 
         <FeedbackBox onClose={() => setShowFeedback(false)} />
       )}
     </View>
@@ -70,7 +72,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   questionContainer: {
-    
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   },
@@ -79,8 +80,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center', 
     marginBottom: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
   },
   titleText: {
     fontSize: 20,
@@ -95,8 +94,12 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
     bottom: 20,
-    right: 20,
+    left: 10, 
+    right: 10,
   },
   
 });
