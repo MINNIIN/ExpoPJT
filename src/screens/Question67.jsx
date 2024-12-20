@@ -28,10 +28,10 @@ export default function App() {
   const [currentQuestion, setCurrentQuestion] = useState(8); 
 
 
-  // 정답 체크
+  
   useEffect(() => {
-    const correctAnswers = items.filter((item) => item.isAllowed).length; // 정답 개수
-    const selectedAnswers = Object.keys(results).length; // 사용자가 선택한 개수
+    const correctAnswers = items.filter((item) => item.isAllowed).length;
+    const selectedAnswers = Object.keys(results).length; 
     const correctSelected = items.every((item) =>
       item.isAllowed ? results[item.id] === 'O' : true
     );
@@ -63,18 +63,18 @@ export default function App() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* 맨 위 제목 */}
+      
       <View style={styles.topContainer}>
       <Text style={styles.header}>문제 67번</Text>
       <Timer/>
       </View>
 
-      {/* 문제 설명 */}
+      
       <Text style={styles.problem}>
         다음 물품들 중 기내반입이 가능한 물품을 눌러보세요!
       </Text>
 
-      {/* 3x3 그리드 물품 출력 */}
+      
       <View style={styles.gridContainer}>
         {items.map((item) => (
           <TouchableOpacity
@@ -82,9 +82,9 @@ export default function App() {
             style={styles.gridItem}
             onPress={() => handleSelect(item.id, item.isAllowed)}
           >
-            {/* 이미지 */}
+            
             <Image source={item.image} style={styles.image} />
-            {/* O 또는 X 결과 표시 */}
+            
             {results[item.id] && (
               <View style={styles.overlay}>
                 <Text style={styles.overlayText}>{results[item.id]}</Text>

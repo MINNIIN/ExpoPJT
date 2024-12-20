@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 
 
-// 정답, 정답체크, 오답
 const Question65tContent = ( { correctAnswers, onAnswerCheck, incorrectAnswers } ) => {
     const [selectedItems, setSelectedItems] = useState([]);
 
@@ -73,7 +72,7 @@ Question65tContent.propTypes = {
       height: 140,
     },
     selectedImage: {
-      borderColor: 'blue', // 선택된 이미지 색
+      borderColor: 'blue',
     },
   });
   

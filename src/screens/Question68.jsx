@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import { ScrollView, Text, Alert, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+
 
 
 const Container = styled.SafeAreaView`

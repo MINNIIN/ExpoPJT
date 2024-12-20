@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import ImageComponent from '../Image';
-import { Modal, Text, TouchableOpacity, Alert } from 'react-native'; //새로운 레이아웃, 설명창
-import AsyncStorage from '@react-native-async-storage/async-storage'; // 아이디 비밀번호 저장 
+import { Modal, Text, TouchableOpacity, Alert } from 'react-native'; 
+import AsyncStorage from '@react-native-async-storage/async-storage';  
 
 const Container = styled.SafeAreaView` 
   flex: 1;
@@ -65,14 +65,14 @@ const CloseButtonText = styled.Text`
 `;
 
 const Main = ({ navigation }) => {
-  const [modalVisible, setModalVisible] = useState(false);{/*모달이 보이는지 여부 */}
+  const [modalVisible, setModalVisible] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
 
-      const storedUsername = await AsyncStorage.getItem('username');{/*스토리지에 저장된 값 불러옴 */}
+      const storedUsername = await AsyncStorage.getItem('username');
       const storedPassword = await AsyncStorage.getItem('password');
 
       if (username === storedUsername && password === storedPassword) {
@@ -115,13 +115,13 @@ const Main = ({ navigation }) => {
 
       <Button onPress={handleLogin}>
         <ButtonText>입장</ButtonText>
-      </Button>{/*모달이 보이는지 여부 */}
+      </Button>
 
       <Button onPress={() => navigation.navigate('SignupScreen')}>
         <ButtonText>회원가입</ButtonText>
       </Button>
 
-      {/* 모달 창 */}
+      
       <Modal visible={modalVisible} transparent={true} animationType="slide"> 
         <ModalContent>
           <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>

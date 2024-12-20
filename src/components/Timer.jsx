@@ -4,7 +4,7 @@ import { images } from '../images';
 
 const Timer = () => {
   
-  const placeholderTime = "00:00"; // 임시로
+  const placeholderTime = "00:00"; 
 
   return (
     <View style={styles.timerContainer}>
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderColor: '#BDBDBD',
     borderWidth: 1,
-    backgroundColor: '#ffffff', // 연한 회색 배경
+    backgroundColor: '#ffffff', 
   },
   text: {
     fontSize: 20,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   timerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000000', // 텍스트 색상
+    color: '#000000',
   },
 });
 

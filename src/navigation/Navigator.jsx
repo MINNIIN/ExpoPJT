@@ -17,7 +17,7 @@ import Question68 from '../screens/Question68.jsx';
 
  const Stack = createStackNavigator();
 
- // 나중에 TestScreen 지우고 initialRouteName= Main으로 변경
+
  export default function AppNavigator() {
    return (
      <NavigationContainer>

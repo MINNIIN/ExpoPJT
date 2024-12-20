@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: #ffff99; /* 노란색 배경 */
+  background-color: #ffff99;
   align-items: center;
   justify-content: center;
 `;

@@ -8,7 +8,7 @@ import PageSlide from '../components/PageSlide';
 export default function App() {
   const [date, setDate] = useState("");
   const [time, setTime] = useState({ hour: "", minute: "", period: "AM" });
-  const [selectedWeather, setSelectedWeather] = useState(""); // 선택된 날씨 상태
+  const [selectedWeather, setSelectedWeather] = useState(""); 
   const [prohibitedItems] = useState([
     "칼", "가위", "고추장", "부탄가스", "액체 (100ml 초과)", "스프레이 (100ml 초과)",
   ]);
@@ -22,7 +22,7 @@ export default function App() {
     navigation.navigate('Question63')
   };
 
-  // 날씨 옵션
+  
   const weatherOptions = [
     { id: "sunny", label: "맑음", icon: require("../../assets/sgImage/sunny.png") },
     { id: "cloudy", label: "흐림", icon: require("../../assets/sgImage/cloudy.png") },
@@ -108,7 +108,6 @@ export default function App() {
 
       <View style={styles.bottomContainer}>
         <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
-              {/* NextButton에 다음 화면 이름 전달 */}
         <NextButton nextScreen="Question63" label="문제 63" onPress={handleNextButtonPress} />
       </View>
 

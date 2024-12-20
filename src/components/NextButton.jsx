@@ -21,9 +21,9 @@ const NextButton = ({ nextScreen, label, onPress }) => {
 };
 
 NextButton.propTypes = {
-  nextScreen: PropTypes.string.isRequired, // 다음 화면 이름
-  label: PropTypes.string, // 버튼에 표시될 텍스트
-  onPress: PropTypes.func.isRequired, // 버튼 클릭 핸들러
+  nextScreen: PropTypes.string.isRequired, 
+  label: PropTypes.string, 
+  onPress: PropTypes.func.isRequired, 
 };
 
 const styles = StyleSheet.create({

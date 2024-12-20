@@ -5,7 +5,7 @@ import Timer from '../components/Timer';
 import PageSlide from '../components/PageSlide';
 
 const Question64 = ({ navigation }) => {
-  const correctAnswer = "9번"; // 정답
+  const correctAnswer = "9번"; 
   const options = [
     { text: "1번", image: require('../../assets/jhImage/opt1.png') },
     { text: "2번", image: require('../../assets/jhImage/opt2.png') },

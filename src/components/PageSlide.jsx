@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   activeDot: {
-    backgroundColor: 'blue', // 현재 문제의 색상
+    backgroundColor: 'blue', 
   },
 });
 

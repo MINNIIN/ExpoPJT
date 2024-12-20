@@ -10,7 +10,7 @@ import PageSlide from '../components/PageSlide';
 
 
 const Question63 = () => {
-  const correctAnswers = ['knife', 'scissors', 'sauce', 'butane', 'coke', 'spray']; // 정답 사물
+  const correctAnswers = ['knife', 'scissors', 'sauce', 'butane', 'coke', 'spray']; 
   const incorrectAnswers = ['umbrella', 'camera', 'tissue'];
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);

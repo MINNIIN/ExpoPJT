@@ -11,7 +11,7 @@ import PageSlide from '../components/PageSlide.jsx';
 
 
 const Question65t = () => {
-  const correctAnswers = ['yiHwang']; // 정답 사물
+  const correctAnswers = ['yiHwang']; 
   const incorrectAnswers = ['gwanggaeto', 'jeongYakyong'];
   const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
   const [showFeedback, setShowFeedback] = useState(false);

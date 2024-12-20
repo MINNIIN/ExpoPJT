@@ -6,12 +6,10 @@ import { useNavigation } from '@react-navigation/native';
 import Timer from '../components/Timer';
 import Question63tContent from '../components/Question63tContent';
 import PageSlide from '../components/PageSlide';
-// import styled from "styled-components";   / npm install styled-components
-// import { Link }
 
 const Question63t = () => {
 
-// 정답 처리 및 화면 전환 코드
+
     const [isAnswerCorrect, setIsAnswerCorrect] = useState(false);
     const [showFeedback, setShowFeedback] = useState(false);
     const navigation = useNavigation();
@@ -41,7 +39,7 @@ const Question63t = () => {
                 <PageSlide totalQuestions={totalQuestions} currentQuestion={currentQuestion} ></PageSlide>
                 <NextButton nextScreen="Question64" label="문제 64" onPress={handleNextButtonPress} />
           </View>
-          {showFeedback && ( // true면 피드백 박스 나타남
+          {showFeedback && ( 
             <FeedbackBox onClose={() => setShowFeedback(false)} />
           )}
         </View>
@@ -49,9 +47,7 @@ const Question63t = () => {
     };
     
 
-    // const Container = styled.Vidw`
-    // flex: 1;
-    // `;
+    
     const styles = StyleSheet.create({
       container: {
         flex: 1,

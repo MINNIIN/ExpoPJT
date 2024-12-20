@@ -15,8 +15,8 @@ const Question63Content = ( { correctAnswers, onAnswerCheck, incorrectAnswers } 
 
         setSelectedItems(updateSelection);
 
-        const isCorrect = correctAnswers.every((answer) => updateSelection.includes(answer)) && // 모든 정답 이미지가 선택된 상태 이면서
-        !incorrectAnswers.some((wrongAnswer) => updateSelection.includes(wrongAnswer)); // 오답 이미지가 선택되지 않았을 때 정답 처리
+        const isCorrect = correctAnswers.every((answer) => updateSelection.includes(answer)) && 
+        !incorrectAnswers.some((wrongAnswer) => updateSelection.includes(wrongAnswer)); 
 
         onAnswerCheck(isCorrect);
     };
@@ -79,7 +79,7 @@ Question63Content.propTypes = {
       height: 80,
     },
     selectedImage: {
-      borderColor: 'blue', // 선택된 이미지 색
+      borderColor: 'blue', 
     },
   });
   
