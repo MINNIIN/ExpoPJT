@@ -118,8 +118,12 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: 'absolute',
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
     bottom: 20,
-    right: 20,
+    left: 10, 
+    right: 10,
   },
   headerContainer: {
     marginTop: 80,
